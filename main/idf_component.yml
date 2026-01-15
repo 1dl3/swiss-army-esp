@@ -1,0 +1,4 @@
+## IDF Component Manager Manifest File
+dependencies:
+  waveshare/esp32_c6_touch_amoled_1_8: '*'
+  espressif/esp_lvgl_port: ^2.7.0
