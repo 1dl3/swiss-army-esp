@@ -1,11 +1,17 @@
 #include "bsp/esp32_c6_touch_amoled_1_8.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "ui/launcher_screen.h"
+#include "launcher_screen.h"
 
 void app_main(void) {
+    bsp_i2c_init();
+    bsp_display_start();
+    bsp_display_brightness_set(100);
+    
     lv_init();
     // Display + Touch init ist bei dir schon drin
+    // In einer echten BSP Umgebung müssten hier bsp_lvgl_port_init() etc. aufgerufen werden
+    // Ich setze voraus, dass das LVGL-Porting bereits im Hintergrund läuft oder initialisiert ist.
 
     launcher_screen_create();
 

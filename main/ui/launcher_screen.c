@@ -31,7 +31,7 @@ void launcher_screen_create(void) {
 
         lv_obj_t *label = lv_label_create(btn);
         lv_label_set_text_fmt(label, "%s\n%s", app_list[i].icon, app_list[i].name);
-        lv_label_set_align(label, LV_TEXT_ALIGN_CENTER);
+        lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0);
         lv_obj_center(label);
     }
 }
