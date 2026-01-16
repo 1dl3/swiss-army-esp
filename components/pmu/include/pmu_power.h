@@ -1,6 +1,7 @@
 #pragma once
-#include <stdint.h>
+
 #include <stdbool.h>
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -9,19 +10,25 @@ extern "C" {
 typedef void (*pmu_display_on_cb_t)(void);
 typedef void (*pmu_display_off_cb_t)(void);
 
-/* Init power manager */
+/**
+ * @brief Initialize PMU power manager
+ *
+ * @param display_on_cb  Called when display should turn ON
+ * @param display_off_cb Called when display should turn OFF
+ */
 void pmu_power_init(
     pmu_display_on_cb_t  display_on_cb,
     pmu_display_off_cb_t display_off_cb
 );
 
-/* Set display timeout */
+/**
+ * @brief Set display inactivity timeout in milliseconds
+ */
 void pmu_set_display_timeout_ms(uint32_t timeout_ms);
 
-/* Notify ANY user activity (tap, shake, etc.) */
-void pmu_notify_user_activity(void);
-
-/* Query display state */
+/**
+ * @brief Returns true if display is currently considered ON
+ */
 bool pmu_is_display_on(void);
 
 #ifdef __cplusplus
