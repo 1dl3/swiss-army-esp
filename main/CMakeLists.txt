@@ -1,17 +1,9 @@
 idf_component_register(
     SRCS 
         "main.c"
-        "ui/launcher_screen.c"
-        "core/app_registry.c"
-        "core/nav.c"
-        "apps/app_dice.c"
-        "apps/app_rng.c"
-        "apps/app_timer.c"
     INCLUDE_DIRS 
         "."
-        "apps"
-        "core"
-        "ui")
+        )
 
 target_compile_options(${COMPONENT_LIB} PUBLIC -Wno-missing-field-initializers)
 

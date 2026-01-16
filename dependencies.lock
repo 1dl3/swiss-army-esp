@@ -2,7 +2,7 @@ dependencies:
   esp32_c6_touch_amoled_1_8:
     dependencies: []
     source:
-      path: /home/kilian/Documents/workspace/swiss-army-esp/components/esp32_c6_touch_amoled_1_8
+      path: /Users/bfuisz/esp/swiss-army-esp/components/esp32_c6_touch_amoled_1_8
       type: local
     version: 0.0.1
   espressif/cmake_utilities:
