@@ -11,7 +11,7 @@ void launcher_screen_create(void) {
     lv_obj_clean(lv_scr_act());
 
     lv_obj_t *grid = lv_obj_create(lv_scr_act());
-    lv_obj_set_size(grid, 240, 240);
+    lv_obj_set_size(grid, 368, 448);
     lv_obj_center(grid);
 
     static lv_coord_t cols[] = {80, 80, 80, LV_GRID_TEMPLATE_LAST};

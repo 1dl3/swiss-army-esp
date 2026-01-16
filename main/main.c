@@ -1,7 +1,7 @@
 #include "bsp/esp32_c6_touch_amoled_1_8.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "launcher_screen.h"
+#include "swiss_army_knife.h"
 
 void app_main(void) {
     bsp_i2c_init();
@@ -13,7 +13,7 @@ void app_main(void) {
     // In einer echten BSP Umgebung müssten hier bsp_lvgl_port_init() etc. aufgerufen werden
     // Ich setze voraus, dass das LVGL-Porting bereits im Hintergrund läuft oder initialisiert ist.
 
-    launcher_screen_create();
+    swiss_army_knife_init("/");   
 
     while (1) {
         lv_timer_handler();

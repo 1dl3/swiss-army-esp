@@ -1,0 +1,7 @@
+<project name="swiss_army_knife">
+	<targets>
+		<target name="full_view">
+			<display width="368" height="448" />
+		</target>
+	</targets>
+</project>
