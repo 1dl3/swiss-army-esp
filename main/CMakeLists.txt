@@ -3,7 +3,10 @@ idf_component_register(
         "main.c"
     INCLUDE_DIRS 
         "."
-        )
+    PRIV_REQUIRES
+        ui
+        pmu
+)
 
 target_compile_options(${COMPONENT_LIB} PUBLIC -Wno-missing-field-initializers)
 
