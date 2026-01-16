@@ -6,15 +6,22 @@
 #include "pmu_axp2101.h"
 #include "pmu_power.h"
 #include "pmu_input.h"
+#include "esp_log.h"
+
+
+/* 
+* TODO: 
+* Reset von touch timer wird nicht aufgerufen d.h. der screen geht immer nach 10 sekunden aus 
+*/
+static const char *TAG = "MAIN";
 
 static lv_obj_t *g_touch_overlay = NULL;
 
 static void touch_event_cb(lv_event_t *e)
 {
+    ESP_LOGI(TAG, "touch_event_cb");
     (void)e;
-if (!pmu_is_display_on()) {
     pmu_input_notify(PMU_INPUT_TAP);
-}
 }
 
 
@@ -79,7 +86,12 @@ static void on_display_off(void)
     }
 }
 
-
+static void global_ui_event_cb(lv_event_t *e)
+{
+    (void)e;
+    ESP_LOGI(TAG, "global_ui_event_cb");
+    pmu_notify_user_activity();
+}
 
 void app_main(void)
 {
@@ -92,6 +104,13 @@ void app_main(void)
     if (bsp_display_lock(2000)) {
         lv_obj_t *screen = layout_create();
         lv_screen_load(screen);
+
+            lv_obj_add_event_cb(
+        screen,
+        global_ui_event_cb,
+        LV_EVENT_PRESSED,
+        NULL
+    );
         bsp_display_unlock();
     }
 

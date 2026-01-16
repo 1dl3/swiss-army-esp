@@ -64,6 +64,7 @@ void pmu_set_display_timeout_ms(uint32_t timeout_ms)
 void pmu_notify_user_activity(void)
 {
     last_activity_us = esp_timer_get_time();
+        ESP_LOGI(TAG, "Last Activity %d ",last_activity_us);
 
     if (!display_on) {
         ESP_LOGI(TAG, "Wake display");
